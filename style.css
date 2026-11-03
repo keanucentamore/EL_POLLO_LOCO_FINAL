@@ -1,0 +1,92 @@
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background-color: var(--color-sky);
+    background-image: url("./assets/images/5_background/complete_background.png");
+    background-size: cover;
+    background-position: bottom;
+    color: var(--color-text);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 2px;
+    color: var(--color-text-dark);
+}
+
+.button {
+    padding: 8px 28px;
+    border: 3px solid var(--color-text-dark);
+    border-radius: 12px;
+    background-color: var(--color-button);
+    color: var(--color-text-dark);
+    font-family: var(--font-main);
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 150ms ease, transform 100ms ease;
+}
+
+.button:hover {
+    background-color: var(--color-button-hover);
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
+.button-secondary {
+    background-color: var(--color-button-secondary);
+}
+
+.button-secondary:hover {
+    background-color: var(--color-button-secondary-hover);
+}
+
+.icon-button {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--color-icon-button);
+    cursor: pointer;
+}
+
+.icon-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.button:focus,
+.icon-button:focus {
+    outline: 3px solid var(--color-text);
+    outline-offset: 2px;
+}
+
+@media screen and (max-height: 600px) {
+    body {
+        padding: 0;
+        gap: 0;
+    }
+
+    header,
+    footer {
+        display: none;
+    }
+}

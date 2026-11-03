@@ -1,0 +1,21 @@
+:root {
+    --color-background: #9e2a10;
+    --color-title: #ffd21f;
+    --color-text: #ffffff;
+    --color-text-dark: #3b1a08;
+    --color-button: #ffd21f;
+    --color-button-hover: #ffe56e;
+    --color-button-secondary: #ffffff;
+    --color-button-secondary-hover: #fff3d1;
+    --color-dialog: #fff8e7;
+    --color-overlay: #000000a6;
+    --color-icon-button: #00000066;
+    --color-touch: #ffffff59;
+    --color-line: #3b1a0833;
+    --color-canvas: #000000;
+    --color-sky: #009bc7;
+
+    --font-main: "Boogaloo", sans-serif;
+
+    --radius: 16px;
+}
