@@ -121,13 +121,14 @@ function isGameRunning() {
 
 
 /**
- * Passes a key press to the keyboard object and closes the dialog on Escape.
+ * Passes a key press to the keyboard object and closes open dialogs on Escape.
  * @param {KeyboardEvent} event - the keyboard event
  * @param {boolean} isPressed - true on press, false on release
  */
 function handleKey(event, isPressed) {
     if (event.key === "Escape") {
-        closeDialog();
+        closeDialog("how-to-play-dialog", "how-to-play-button");
+        closeDialog("imprint-dialog", "imprint-button");
     }
     const action = keyActions[event.key];
     if (action !== undefined && isGameRunning()) {
@@ -233,22 +234,25 @@ function updateFullscreenState() {
 
 
 /**
- * Opens the dialog with story and controls and moves the focus into it.
+ * Opens a dialog and moves the focus to its close button.
+ * @param {string} dialogId - ID of the dialog
  */
-function openDialog() {
-    document.getElementById("dialog").classList.remove("d-none");
-    document.getElementById("dialog-close").focus();
+function openDialog(dialogId) {
+    document.getElementById(dialogId).classList.remove("d-none");
+    document.getElementById(`${dialogId}-close`).focus();
 }
 
 
 /**
- * Closes the dialog and returns the focus to the button that opened it.
+ * Closes an open dialog and returns the focus to the button that opened it.
+ * @param {string} dialogId - ID of the dialog
+ * @param {string} openerId - ID of the button that opened the dialog
  */
-function closeDialog() {
-    const dialog = document.getElementById("dialog");
+function closeDialog(dialogId, openerId) {
+    const dialog = document.getElementById(dialogId);
     if (dialog.classList.contains("d-none")) {
         return;
     }
     dialog.classList.add("d-none");
-    document.getElementById("how-to-play-button").focus();
+    document.getElementById(openerId).focus();
 }

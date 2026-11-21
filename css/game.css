@@ -35,9 +35,14 @@ canvas {
     gap: 16px;
 }
 
-.start-screen-link {
-    font-size: 16px;
+.link-button {
+    border: none;
+    background: none;
     color: var(--color-text-dark);
+    font-family: var(--font-main);
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .end-screen {
