@@ -8,20 +8,45 @@ function createLevel1() {
 
 
 /**
- * Creates the chickens and chicks of level 1 with different speeds.
+ * Combines the chickens and chicks of level 1 into one list of enemies.
  * @returns {Chicken[]} the enemies
  */
 function createLevel1Enemies() {
+    const enemies = createLevel1Chickens();
+    createLevel1Chicks().forEach((chick) => enemies.push(chick));
+    return enemies;
+}
+
+
+/**
+ * Creates the regular chickens of level 1 with different speeds.
+ * @returns {Chicken[]} the chickens
+ */
+function createLevel1Chickens() {
     return [
         new Chicken(900, 0.3),
-        new SmallChicken(1300, 0.6),
         new Chicken(1600, 0.4),
         new Chicken(2000, 0.25),
-        new SmallChicken(2300, 0.7),
+        new Chicken(2500, 0.5),
         new Chicken(2700, 0.35),
-        new SmallChicken(3000, 0.8),
         new Chicken(3400, 0.45),
-        new SmallChicken(3700, 0.6)
+        new Chicken(3950, 0.5)
+    ];
+}
+
+
+/**
+ * Creates the faster chicks of level 1.
+ * @returns {SmallChicken[]} the chicks
+ */
+function createLevel1Chicks() {
+    return [
+        new SmallChicken(1300, 0.6),
+        new SmallChicken(2300, 0.7),
+        new SmallChicken(3000, 0.8),
+        new SmallChicken(3200, 0.9),
+        new SmallChicken(3700, 0.6),
+        new SmallChicken(4250, 0.9)
     ];
 }
 
