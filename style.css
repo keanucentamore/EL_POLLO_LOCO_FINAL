@@ -85,8 +85,7 @@ h1 {
         gap: 0;
     }
 
-    header,
-    footer {
+    header {
         display: none;
     }
 }
