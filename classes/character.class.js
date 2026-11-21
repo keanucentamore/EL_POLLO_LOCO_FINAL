@@ -326,6 +326,19 @@ class Character extends MovableObject {
 
 
     /**
+     * Throws Pepe back and up after a hit by the final boss.
+     * @param {boolean} isHitFromRight - true if the final boss is right of Pepe
+     */
+    knockBack(isHitFromRight) {
+        this.x = isHitFromRight ? this.x - 120 : this.x + 120;
+        if (this.x < 100) {
+            this.x = 100;
+        }
+        this.speedY = 7;
+    }
+
+
+    /**
      * Lets Pepe bounce off briefly after hitting an enemy from above.
      */
     bounce() {

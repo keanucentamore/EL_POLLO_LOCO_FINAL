@@ -130,13 +130,13 @@ class Endboss extends MovableObject {
 
 
     /**
-     * Walks towards Pepe after the first contact, faster when attacking.
+     * Walks towards Pepe after the first contact, faster when attacking and with every hit taken.
      */
     move() {
         if (this.isDead() || this.isHurt() || !this.hadFirstContact) {
             return;
         }
-        this.speed = this.isAttacking() ? 4 : 1.5;
+        this.speed = this.isAttacking() ? 6 : 2.5 + (100 - this.energy) / 25;
         const distance = this.getDistanceToCharacter();
         if (distance > 10) {
             this.moveLeft();
@@ -145,6 +145,16 @@ class Endboss extends MovableObject {
             this.moveRight();
             this.otherDirection = true;
         }
+    }
+
+
+    /**
+     * Takes the damage of a bottle and only pauses briefly before attacking again.
+     */
+    takeBottleHit() {
+        this.hit(20);
+        this.hurtTicks = 3;
+        this.hadFirstContact = true;
     }
 
 

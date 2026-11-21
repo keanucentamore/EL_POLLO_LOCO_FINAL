@@ -78,9 +78,11 @@ class World {
      */
     checkEndbossCollision() {
         const endboss = this.level.endboss;
-        if (!endboss.isDead() && this.character.isColliding(endboss)) {
-            this.hurtCharacter(40);
+        if (endboss.isDead() || this.character.isHurt() || !this.character.isColliding(endboss)) {
+            return;
         }
+        this.hurtCharacter(40);
+        this.character.knockBack(endboss.getDistanceToCharacter() > 0);
     }
 
 
@@ -211,8 +213,7 @@ class World {
             return;
         }
         bottle.splash();
-        endboss.hit(20);
-        endboss.hadFirstContact = true;
+        endboss.takeBottleHit();
         this.endbossBar.setPercentage(endboss.energy);
         soundManager.play("bossHurt");
     }
