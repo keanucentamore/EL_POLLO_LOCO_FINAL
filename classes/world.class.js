@@ -153,9 +153,11 @@ class World {
             this.throwCooldown--;
             return;
         }
-        if (this.keyboard.throwBottle && this.character.bottles > 0 && !this.character.isDead()) {
+        const wantsToThrow = this.keyboard.throwBottle || this.keyboard.throwTapped;
+        if (wantsToThrow && this.character.bottles > 0 && !this.character.isDead()) {
             this.throwBottle();
         }
+        this.keyboard.throwTapped = false;
     }
 
 

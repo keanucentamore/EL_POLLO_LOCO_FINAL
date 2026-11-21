@@ -197,10 +197,12 @@ class Character extends MovableObject {
      * Jumps if the jump key is pressed and Pepe is standing on the ground.
      */
     checkJump() {
-        if (this.world.keyboard.jump && !this.isAboveGround()) {
+        const keyboard = this.world.keyboard;
+        if ((keyboard.jump || keyboard.jumpTapped) && !this.isAboveGround()) {
             this.jump();
             soundManager.play("jump");
         }
+        keyboard.jumpTapped = false;
     }
 
 

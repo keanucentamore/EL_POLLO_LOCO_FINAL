@@ -7,5 +7,7 @@ class Keyboard {
         this.right = false;
         this.jump = false;
         this.throwBottle = false;
+        this.jumpTapped = false;
+        this.throwTapped = false;
     }
 }

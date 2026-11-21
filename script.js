@@ -11,6 +11,10 @@ const keyActions = {
     d: "throwBottle",
     D: "throwBottle"
 };
+const tapActions = {
+    jump: "jumpTapped",
+    throwBottle: "throwTapped"
+};
 
 
 /**
@@ -129,6 +133,9 @@ function handleKey(event, isPressed) {
     if (action !== undefined && isGameRunning()) {
         event.preventDefault();
         keyboard[action] = isPressed;
+        if (isPressed) {
+            registerTap(action);
+        }
     }
 }
 
@@ -141,6 +148,19 @@ function handleKey(event, isPressed) {
 function pressTouchButton(action, event) {
     event.preventDefault();
     keyboard[action] = true;
+    registerTap(action);
+}
+
+
+/**
+ * Remembers a short press of jump or throw until the game has handled it.
+ * @param {string} action - name of the action in the keyboard object
+ */
+function registerTap(action) {
+    const tapAction = tapActions[action];
+    if (tapAction !== undefined) {
+        keyboard[tapAction] = true;
+    }
 }
 
 

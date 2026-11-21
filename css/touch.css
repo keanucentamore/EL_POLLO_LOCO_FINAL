@@ -29,6 +29,7 @@
 .touch-button img {
     width: 36px;
     height: 36px;
+    pointer-events: none;
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
